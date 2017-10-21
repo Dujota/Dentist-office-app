@@ -1,6 +1,12 @@
 class AppointmentsController < ApplicationController
+  before_action :require_logged_in # what this does? before it runs the code, it will calll method require_logged_in an
+
+
   def index
-    @appointments = Appointment.all
+    @appointments = current_user.appointments.all
+
+    # the above is the same as Appointment.where(user_id: current_user.id).all -- we can write the above using the has_many association, we are calling current_user helper method
+
   end
 
   def new
