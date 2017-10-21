@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     resources :appointments, only: [:index] do
       member do
         post :confirm
+        post :cancel
       end
     end
   end
