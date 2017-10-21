@@ -17,6 +17,12 @@
           <li>
             <%= link_to 'My Appointment', appointments_path %>
           </li>
+          <!-- we only want to show this link if the user is an admin -->
+          <% if current_user.is_admin? %>
+            <li>
+              <%= link_to 'Admin', admin_appointments_path %>
+            </li>
+          <% end %>
           <li>
             <%= link_to 'Log Out', session_path(current_user), method: :delete  %>
           </li>

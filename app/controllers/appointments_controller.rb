@@ -1,7 +1,6 @@
 class AppointmentsController < ApplicationController
   before_action :require_logged_in # what this does? before it runs the code, it will calll method require_logged_in an
 
-
   def index
     @appointments = current_user.appointments.all
 
@@ -26,7 +25,7 @@ class AppointmentsController < ApplicationController
   end
 
   private
-  #this mehtod passes in the params from the form to the create method
+  # this mehtod passes in the params from the form to the create method
   def appointment_params
     params.require(:appointment).permit(:dentist_id, :appointment_at)
   end

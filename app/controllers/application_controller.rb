@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   helper_method :logged_in?
 
   def require_logged_in
-    if !logged_in?   #you can put unless logged_in
+    unless logged_in? # you can put unless logged_in
       flash[:alert] = "Nice try buddy, Log in first you tard!"
       redirect_to new_session_url
     end
